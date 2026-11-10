@@ -2,12 +2,12 @@ package co.edu.uniquindio.pilas_colas;
 
 import java.util.Iterator;
 
+/**
+ * Pila genérica con métodos de agregación y eliminación (apilar y desapilar)
+ * Incluye método para mostrar su contenido, determinar si está vacía y saber su tamaño
+ * @param <T>
+ */
 public class Pila<T> implements Iterable<T> {
-    @Override
-    public Iterator<T> iterator() {
-        return new PilaIterator();
-    }
-
     private Nodo<T> cima;
     private int tam;
 
@@ -32,33 +32,11 @@ public class Pila<T> implements Iterable<T> {
         tam--;
         return dato;
     }
+
     public int tamanio(){
         return tam;
     }
-    public int localizar(T datoBuscar) {
-        Nodo<T> aux = cima;
-        int count = 0;
-        while (aux != null) {
-            if (aux.getDato().equals(datoBuscar)) {
-                return count;
-            }
-            count++;
-            aux = aux.getSiguiente();
-        }
-        return -1;
-    }
-    public boolean buscar(T datoBuscar) {
-        Nodo<T> aux = cima;
-        while (aux != null) {
 
-            if (aux.getDato().equals(datoBuscar)) {
-                return true;
-            }
-            aux = aux.getSiguiente();
-        }
-
-        return false;
-    }
     public boolean estaVacia() {
         if(cima == null && tam == 0){
             return true;
@@ -79,6 +57,12 @@ public class Pila<T> implements Iterable<T> {
         listaString += " ]";
         return listaString;
     }
+
+
+    @Override
+    public Iterator<T> iterator() {
+        return new PilaIterator();
+    }
     private class PilaIterator implements Iterator<T> {
         Nodo<T> actual = cima;
         @Override
@@ -96,5 +80,4 @@ public class Pila<T> implements Iterable<T> {
             return valor;
         }
     }
-
 }

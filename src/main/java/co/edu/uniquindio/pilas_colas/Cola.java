@@ -1,5 +1,9 @@
 package co.edu.uniquindio.pilas_colas;
 
+/**
+ * Estructura enlazada genérica Cola. Guarda el nodo de inicio y del final, también su tamaño.
+ * @param <T>
+ */
 public class Cola<T> {
     private Nodo<T> inicio;
     private Nodo<T> fin;

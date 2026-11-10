@@ -2,7 +2,9 @@ package co.edu.uniquindio.pilas_colas;
 
 public class MainPilasColas {
     public static void main(String[] args) {
-        // EJERCICIO 1
+        /**
+         * Ejercicio 1 del parcial: Retiro de cajas y evaluación de expresiones
+         */
         Pila<Caja> pila = new Pila<>();
         pila.apilar(new Caja("C1", 2));
         pila.apilar(new Caja("C2", 4));
@@ -29,7 +31,9 @@ public class MainPilasColas {
 
         System.out.println("Pila final:\n " + pila.mostrar());
 
-        //EJERCICIO 2
+        /**
+         * Ejercicio 2 del parcial: Obtener un segmento del historial
+         */
         Pila<String> acciones = new Pila<>();
         acciones.apilar("A1");
         acciones.apilar("A2");
@@ -46,7 +50,9 @@ public class MainPilasColas {
         System.out.println(ejemplo.mostrar());
         System.out.println("La pila inicial queda intacta" + acciones.mostrar());
 
-        //EJERCICIO 3
+        /**
+         * Ejercicio 3 del parcial: Selección para una jornada
+         */
         Cola<Paquete> pendientes = new Cola<>();
         pendientes.encolar(new Paquete("P1", TipoEntrega.NORMAL, 4));
         pendientes.encolar(new Paquete("P2", TipoEntrega.URGENTE, 8));
@@ -58,6 +64,7 @@ public class MainPilasColas {
 
         int capacidad = 14;
 
+        System.out.println("3. Selección de solicitudes para una jornada");
         System.out.println("Cola inicial:\n" + pendientes.mostrar());
         System.out.println("Capacidad disponible: " + capacidad + " kg");
 

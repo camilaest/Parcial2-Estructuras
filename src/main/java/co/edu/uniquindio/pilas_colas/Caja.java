@@ -1,5 +1,8 @@
 package co.edu.uniquindio.pilas_colas;
 
+/**
+ * Clase Caja con atributos código y valor, constructor, getter, setter y toString
+ */
 public class Caja {
     private String codigo;
     private int valor;

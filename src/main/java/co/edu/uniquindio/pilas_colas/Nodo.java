@@ -1,5 +1,9 @@
 package co.edu.uniquindio.pilas_colas;
 
+/**
+ * Clase genérica Nodo de una estructura enlazada. Guarda un dato y la referencia al nodo siguiente
+ * @param <T>
+ */
 public class Nodo<T> {
     private T dato;
     private Nodo<T> siguiente;

@@ -1,5 +1,9 @@
 package co.edu.uniquindio.pilas_colas;
 
+/**
+ * Clase Paquete con atributos código, tipo de entrega (URGENTE o NORMAL) y peso en kilogramos.
+ * Se utiliza para el ejercicio 3, asignar paquetes a un vehículo según su capacidad.
+ */
 public class Paquete {
     private String codigo;
     private TipoEntrega tipo;
@@ -31,6 +35,9 @@ public class Paquete {
     }
 
     public void setPeso(int peso) {
+        if (peso < 0){
+            throw new IllegalArgumentException("El peso no puede ser negativo");
+        }
         this.peso = peso;
     }
 
