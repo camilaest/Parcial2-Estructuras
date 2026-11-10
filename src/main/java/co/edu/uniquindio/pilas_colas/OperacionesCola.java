@@ -28,12 +28,12 @@ public class OperacionesCola {
         Paquete p = cola.desencolar();
         if(p.getTipo().equals(tipo)){
             if(p.getPeso() <= capacidad){
-                System.out.println(p.getCodigo() + p.getTipo() + ", " + p.getPeso() + " kg : SELECCIONADO");
+                System.out.println(p.getCodigo() +": "+ p.getTipo() + ", " + p.getPeso() + " kg : SELECCIONADO");
                 seleccionados.encolar(p);
                 //Caso recursivo
                 return procesar(cola, seleccionados, tipo, t - 1, capacidad - p.getPeso());
             }
-            System.out.println(p.getCodigo() + p.getTipo() + ", " + p.getPeso() + " kg : PENDIENTE (no cabe en el vehículo)");
+            System.out.println(p.getCodigo() +": " + p.getTipo() + ", " + p.getPeso() + " kg : PENDIENTE (no cabe en el vehículo)");
         }
         cola.encolar(p);
         //Caso recursivo

@@ -44,7 +44,7 @@ public class Paquete {
     @Override
     public String toString() {
         return "Paquete{ "
-                + codigo + '\'' +
+                + codigo  +
                 ", tipo= " + tipo +
                 ", peso= " + peso +
                 "}\n";

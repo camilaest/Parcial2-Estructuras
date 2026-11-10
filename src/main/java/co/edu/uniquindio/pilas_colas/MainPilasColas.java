@@ -42,29 +42,34 @@ public class MainPilasColas {
         acciones.apilar("A5");
         acciones.apilar("A6");
 
-        System.out.println("2. Obtener un segmento del historial");
+        System.out.println("\n2. Obtener un segmento del historial");
         System.out.println("Pila inicial:\n " + acciones.mostrar());
 
         System.out.println("Ejemplo con inicio = 2 y fin = 4");
         Pila<String> ejemplo = OperacionesPila.obtenerSegmento(acciones,2,4);
         System.out.println(ejemplo.mostrar());
-        System.out.println("La pila inicial queda intacta" + acciones.mostrar());
-
+        System.out.println("La pila inicial queda intacta: " + acciones.mostrar());
+        System.out.println("Si la posición inicial y final son iguales: ");
+        Pila<String> iguales = OperacionesPila.obtenerSegmento(acciones,5,5);
+        System.out.println(iguales.mostrar());
+        System.out.println("Si la posición no es valida: ");
+        Pila<String> invalida = OperacionesPila.obtenerSegmento(acciones,9,6);
+        System.out.println(invalida.mostrar());
         /**
          * Ejercicio 3 del parcial: Selección para una jornada
          */
         Cola<Paquete> pendientes = new Cola<>();
         pendientes.encolar(new Paquete("P1", TipoEntrega.NORMAL, 4));
-        pendientes.encolar(new Paquete("P2", TipoEntrega.URGENTE, 8));
+        pendientes.encolar(new Paquete("P2", TipoEntrega.URGENTE, 7));
         pendientes.encolar(new Paquete("P3", TipoEntrega.NORMAL, 3));
         pendientes.encolar(new Paquete("P4", TipoEntrega.URGENTE, 5));
-        pendientes.encolar(new Paquete("P5", TipoEntrega.NORMAL, 2));
+        pendientes.encolar(new Paquete("P5", TipoEntrega.NORMAL, 6));
         pendientes.encolar(new Paquete("P6", TipoEntrega.URGENTE, 4));
         pendientes.encolar(new Paquete("P7", TipoEntrega.NORMAL, 2));
 
         int capacidad = 14;
 
-        System.out.println("3. Selección de solicitudes para una jornada");
+        System.out.println("\n3. Selección de solicitudes para una jornada");
         System.out.println("Cola inicial:\n" + pendientes.mostrar());
         System.out.println("Capacidad disponible: " + capacidad + " kg");
 
