@@ -2,7 +2,7 @@ package co.edu.uniquindio.pilas_colas;
 
 public class MainPilasColas {
     public static void main(String[] args) {
-
+        // EJERCICIO 1
         Pila<Caja> pila = new Pila<>();
         pila.apilar(new Caja("C1", 2));
         pila.apilar(new Caja("C2", 4));
@@ -14,7 +14,7 @@ public class MainPilasColas {
 
         System.out.println("1.  Retiro de cajas y evaluación de expresiones");
         System.out.println("Pila inicial:\n " + pila.mostrar());
-        System.out.println();
+
 
         System.out.println("Solicitamos retirar caja C3");
         System.out.println("Retorna: " + OperacionesPila.retirarCaja(pila,"C3"));
@@ -28,6 +28,46 @@ public class MainPilasColas {
 
 
         System.out.println("Pila final:\n " + pila.mostrar());
+
+        //EJERCICIO 2
+        Pila<String> acciones = new Pila<>();
+        acciones.apilar("A1");
+        acciones.apilar("A2");
+        acciones.apilar("A3");
+        acciones.apilar("A4");
+        acciones.apilar("A5");
+        acciones.apilar("A6");
+
+        System.out.println("2. Obtener un segmento del historial");
+        System.out.println("Pila inicial:\n " + acciones.mostrar());
+
+        System.out.println("Ejemplo con inicio = 2 y fin = 4");
+        Pila<String> ejemplo = OperacionesPila.obtenerSegmento(acciones,2,4);
+        System.out.println(ejemplo.mostrar());
+        System.out.println("La pila inicial queda intacta" + acciones.mostrar());
+
+        //EJERCICIO 3
+        Cola<Paquete> pendientes = new Cola<>();
+        pendientes.encolar(new Paquete("P1", TipoEntrega.NORMAL, 4));
+        pendientes.encolar(new Paquete("P2", TipoEntrega.URGENTE, 8));
+        pendientes.encolar(new Paquete("P3", TipoEntrega.NORMAL, 3));
+        pendientes.encolar(new Paquete("P4", TipoEntrega.URGENTE, 5));
+        pendientes.encolar(new Paquete("P5", TipoEntrega.NORMAL, 2));
+        pendientes.encolar(new Paquete("P6", TipoEntrega.URGENTE, 4));
+        pendientes.encolar(new Paquete("P7", TipoEntrega.NORMAL, 2));
+
+        int capacidad = 14;
+
+        System.out.println("Cola inicial:\n" + pendientes.mostrar());
+        System.out.println("Capacidad disponible: " + capacidad + " kg");
+
+        Cola<Paquete> seleccionados = OperacionesCola.recursividadPaquetes(pendientes, capacidad);
+
+        System.out.println("Cola retornada:\n" + seleccionados.mostrar());
+        System.out.println("Cola de pendientes:\n" + pendientes.mostrar());
+
+        int usado = OperacionesCola.pesoTotal(seleccionados, seleccionados.tamanio());
+        System.out.println("Capacidad restante: " + (capacidad - usado) + " kg");
     }
 
 
