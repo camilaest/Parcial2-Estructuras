@@ -54,4 +54,22 @@ public class OperacionesPila {
         }
         return true;
     }
+    public static Pila<String> obtenerSegmento(Pila<String> pila, int inicio, int fin) {
+        Pila<String> acciones = new Pila<>();
+        if(inicio > fin || inicio < 1 || fin > pila.tamanio()){
+            return acciones;
+        }
+        Pila<String> aux = new Pila<>();
+        int posicion = 1;
+        for (String i : pila) {
+            if(posicion >= inicio && posicion <= fin){
+                aux.apilar(i);
+            }
+            posicion++;
+        }
+        while (!aux.estaVacia()) {
+            acciones.apilar(aux.desapilar());
+        }
+        return acciones;
+    }
 }

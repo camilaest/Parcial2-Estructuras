@@ -32,6 +32,9 @@ public class Pila<T> implements Iterable<T> {
         tam--;
         return dato;
     }
+    public int tamanio(){
+        return tam;
+    }
     public int localizar(T datoBuscar) {
         Nodo<T> aux = cima;
         int count = 0;
