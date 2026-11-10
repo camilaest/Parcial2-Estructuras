@@ -61,4 +61,37 @@ public class ArbolABB {
             return buscar(nodo.derecho, codigo);
         }
     }
+
+    /**
+     * Cuenta cuántos equipos tienen un código dentro del rango [inferior, superior],
+     * incluyendo los extremos. Aprovecha el orden del ABB para podar los
+     * subárboles que no pueden aportar al conteo.
+     *
+     * @param actual     nodo actual del recorrido (puede ser null)
+     * @param limiteInferior límite inferior del rango (incluido)
+     * @param limiteSuperior límite superior del rango (incluido)
+     * @return cantidad de equipos cuyo código está en el rango; 0 si el árbol
+     *         está vacío o si inferior es mayor que superior
+     */
+
+    public static int contarEquiposEnRango(NodoABB actual, int limiteInferior, int limiteSuperior) {
+        // Caso base, o cuando limite inferior es mayor al superior
+        if (actual == null || limiteInferior > limiteSuperior) {
+            return 0;
+        }
+
+        //si el nodo que llega es menor al límite, hay que ignorar los hijos de ese nodo y nos vamos por la rama derecha.
+        if (actual.codigo < limiteInferior) {
+            return contarEquiposEnRango(actual.derecho, limiteInferior, limiteSuperior);
+        }
+
+
+        if (actual.codigo > limiteSuperior) {
+            return contarEquiposEnRango(actual.izquierdo, limiteInferior, limiteSuperior);
+        }
+
+
+        return 1 + contarEquiposEnRango(actual.izquierdo, limiteInferior, limiteSuperior)
+                + contarEquiposEnRango(actual.derecho, limiteInferior, limiteSuperior);
+    }
 }
